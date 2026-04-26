@@ -50,55 +50,13 @@
         "mainEntityOfPage": "https://genprofi.ru/news-marketplace-packaging.html"
       }
     </script>
-    <script type="text/javascript">
-      (function (m, e, t, r, i, k, a) {
-        m[i] =
-          m[i] ||
-          function () {
-            (m[i].a = m[i].a || []).push(arguments);
-          };
-        m[i].l = 1 * new Date();
-        (k = e.createElement(t)),
-          (a = e.getElementsByTagName(t)[0]),
-          (k.async = 1),
-          (k.src = r),
-          a.parentNode.insertBefore(k, a);
-      })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js', 'ym');
-
-      ym(85038316, 'init', {
-        clickmap: true,
-        trackLinks: true,
-        accurateTrackBounce: true,
-      });
-    </script>
-    <noscript>
-      <div>
-        <img
-          src="https://mc.yandex.ru/watch/85038316"
-          style="position: absolute; left: -9999px"
-          alt=""
-        />
-      </div>
-    </noscript>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-207694474-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag('js', new Date());
-      gtag('config', 'UA-207694474-1', {
-        anonymize_ip: true,
-        allow_google_signals: false,
-      });
-    </script>
   </head>
   <body>
     <div class="site-shell">
       <header class="site-header">
         <div class="container header-row">
           <a class="brand" href="index.html" aria-label="Генпрофи">
-            <img src="img/logo.svg" alt="Логотип Генпрофи" />
+            <img decoding="async" src="img/logo.svg" alt="Логотип Генпрофи" />
           </a>
           <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-label="Меню"><span></span></button>
           <nav class="site-nav" data-nav>
@@ -137,7 +95,7 @@
               </div>
 
               <div class="media-card">
-                <img src="img/home/subject-3.png" alt="Гофрокороба для маркетплейсов" loading="eager" />
+                <img decoding="async" src="img/home/subject-3.png" alt="Гофрокороба для маркетплейсов" loading="eager" fetchpriority="high" />
               </div>
 
               <article class="panel">
@@ -227,7 +185,7 @@
               <div class="field"><label for="mp-phone">Телефон</label><input id="mp-phone" name="phone" type="tel" required /></div>
             </div>
             <div class="field"><label for="mp-message">Сообщение</label><textarea id="mp-message" name="message"></textarea></div>
-            <label class="checkbox"><input type="checkbox" required /><span>Я согласен на обработку данных для обратной связи.</span></label>
+            <label class="checkbox"><input type="checkbox" name="personal_data_consent" value="accepted" required /><span>Я даю согласие ООО «Генпрофи» на обработку имени, телефона и сообщения для ответа на заявку по <a href="agreement.html">политике обработки персональных данных</a>.</span></label>
             <button class="button button--primary" type="submit">Отправить</button>
             <div class="form-status" data-form-status></div>
           </form>

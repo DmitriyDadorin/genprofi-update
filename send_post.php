@@ -37,9 +37,15 @@ $name = isset($payload['name']) ? clean_value($payload['name']) : '';
 $phone = isset($payload['phone']) ? clean_value($payload['phone']) : '';
 $message = isset($payload['message']) ? trim((string) $payload['message']) : '';
 $source = isset($payload['source']) ? clean_value($payload['source']) : 'Сайт Генпрофи';
+$consent = isset($payload['personal_data_consent']) ? clean_value($payload['personal_data_consent']) : '';
+$consentVersion = isset($payload['consent_version']) ? clean_value($payload['consent_version']) : 'не указана';
 
 if ($name === '' || $phone === '') {
     respond(false, 'Укажите имя и телефон.', 422);
+}
+
+if ($consent !== 'accepted') {
+    respond(false, 'Подтвердите согласие на обработку персональных данных.', 422);
 }
 
 $subject = 'Новая заявка с сайта Генпрофи';
@@ -56,7 +62,9 @@ $body = ''
     . '<p><strong>Телефон:</strong> ' . htmlspecialchars($phone, ENT_QUOTES, 'UTF-8') . '</p>'
     . '<p><strong>Сообщение:</strong><br>'
     . nl2br(htmlspecialchars($message !== '' ? $message : 'Не указано', ENT_QUOTES, 'UTF-8'))
-    . '</p>';
+    . '</p>'
+    . '<p><strong>Согласие на обработку персональных данных:</strong> получено через чекбокс формы. '
+    . 'Редакция согласия: ' . htmlspecialchars($consentVersion, ENT_QUOTES, 'UTF-8') . '.</p>';
 
 $headers = array();
 $headers[] = 'MIME-Version: 1.0';

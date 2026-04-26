@@ -315,7 +315,7 @@ h4 {
   margin: 0;
   font-family: "Space Grotesk", sans-serif;
   line-height: 1.08;
-  letter-spacing: -0.025em;
+  letter-spacing: 0;
 }
 
 h1 {
@@ -665,6 +665,13 @@ p {
   color: rgba(255, 255, 255, 0.82);
 }
 
+.panel--accent .field label,
+.panel--accent .checkbox,
+.panel--dark .field label,
+.panel--dark .checkbox {
+  color: rgba(255, 255, 255, 0.86);
+}
+
 .panel-stack {
   display: grid;
   gap: 18px;
@@ -746,6 +753,23 @@ p {
 .map-card script {
   display: block;
   width: 100%;
+}
+
+.map-card--placeholder {
+  display: grid;
+  min-height: 425px;
+  place-items: center;
+  background:
+    linear-gradient(rgba(255, 253, 248, 0.86), rgba(255, 253, 248, 0.86)),
+    repeating-linear-gradient(45deg, rgba(21, 25, 28, 0.06) 0 1px, transparent 1px 16px);
+}
+
+.map-card__content {
+  display: grid;
+  gap: 14px;
+  width: min(100% - 40px, 360px);
+  text-align: center;
+  justify-items: center;
 }
 
 .faq {
@@ -920,6 +944,16 @@ p {
   font-size: 0.94rem;
 }
 
+.footer-cookie-button {
+  padding: 0;
+  color: var(--accent-strong);
+  font-weight: 700;
+}
+
+.footer-cookie-button:hover {
+  text-decoration: underline;
+}
+
 .modal {
   position: fixed;
   inset: 0;
@@ -968,6 +1002,53 @@ p {
 
 .spacer-top {
   margin-top: 12px;
+}
+
+.cookie-consent {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 90;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 18px;
+  align-items: center;
+  width: min(720px, calc(100vw - 48px));
+  padding: 20px;
+  border: 1px solid rgba(21, 25, 28, 0.12);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 253, 248, 0.98);
+  box-shadow: 0 20px 70px rgba(16, 18, 20, 0.2);
+}
+
+.cookie-consent__text {
+  display: grid;
+  gap: 6px;
+}
+
+.cookie-consent__text strong {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.08rem;
+}
+
+.cookie-consent__text p {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.62;
+}
+
+.cookie-consent__text a {
+  color: var(--accent-strong);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.cookie-consent__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-end;
 }
 
 @media (max-width: 1240px) {
@@ -1117,6 +1198,19 @@ p {
   .hero-actions,
   .section-actions {
     flex-direction: column;
+  }
+
+  .cookie-consent {
+    grid-template-columns: 1fr;
+    right: 10px;
+    bottom: 10px;
+    left: 10px;
+    width: auto;
+    padding: 16px;
+  }
+
+  .cookie-consent__actions {
+    justify-content: stretch;
   }
 }
 

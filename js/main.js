@@ -1,3 +1,117 @@
+const YM_COUNTER_ID = 85038316;
+const COOKIE_CONSENT_KEY = 'genprofi_cookie_consent_v1';
+const COOKIE_CONSENT_ACCEPTED = 'accepted';
+
+function getCookieConsent() {
+  try {
+    return window.localStorage.getItem(COOKIE_CONSENT_KEY);
+  } catch (error) {
+    return null;
+  }
+}
+
+function setCookieConsent(value) {
+  try {
+    window.localStorage.setItem(COOKIE_CONSENT_KEY, value);
+  } catch (error) {
+    // If storage is unavailable, the current page session still respects the click.
+  }
+}
+
+function loadYandexMetrika() {
+  if (window.__genprofiYandexMetrikaLoaded) {
+    return;
+  }
+
+  window.__genprofiYandexMetrikaLoaded = true;
+
+  (function (m, e, t, r, i, k, a) {
+    m[i] =
+      m[i] ||
+      function () {
+        (m[i].a = m[i].a || []).push(arguments);
+      };
+    m[i].l = 1 * new Date();
+    k = e.createElement(t);
+    a = e.getElementsByTagName(t)[0];
+    k.async = 1;
+    k.src = r;
+    a.parentNode.insertBefore(k, a);
+  })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js', 'ym');
+
+  window.ym(YM_COUNTER_ID, 'init', {
+    clickmap: true,
+    trackLinks: true,
+    accurateTrackBounce: true,
+  });
+}
+
+function removeCookieBanner() {
+  const banner = document.querySelector('[data-cookie-consent]');
+
+  if (banner) {
+    banner.remove();
+  }
+}
+
+function showCookieBanner(force = false) {
+  if (!force) {
+    const consent = getCookieConsent();
+
+    if (consent === COOKIE_CONSENT_ACCEPTED) {
+      loadYandexMetrika();
+      return;
+    }
+
+  }
+
+  if (document.querySelector('[data-cookie-consent]')) {
+    return;
+  }
+
+  const banner = document.createElement('section');
+  banner.className = 'cookie-consent';
+  banner.setAttribute('data-cookie-consent', '');
+  banner.setAttribute('role', 'dialog');
+  banner.setAttribute('aria-label', 'Согласие на использование cookie');
+  banner.innerHTML = `
+    <div class="cookie-consent__text">
+      <p>
+        Мы используем файлы cookie (файлы с данными о прошлых посещениях сайта). Продолжая
+        использовать сайт, вы соглашаетесь с <a href="agreement.html">Политикой конфиденциальности</a>
+        и использованием нами этих файлов cookie. Вы можете запретить сохранение cookie в настройках
+        своего браузера.
+      </p>
+    </div>
+    <div class="cookie-consent__actions">
+      <button class="button button--primary button--sm" type="button" data-cookie-accept>Согласен</button>
+    </div>
+  `;
+
+  document.body.appendChild(banner);
+
+  banner.querySelector('[data-cookie-accept]').addEventListener('click', () => {
+    setCookieConsent(COOKIE_CONSENT_ACCEPTED);
+    loadYandexMetrika();
+    removeCookieBanner();
+  });
+}
+
+function initCookieSettings() {
+  const footerBottom = document.querySelector('.footer-bottom');
+
+  if (!footerBottom || footerBottom.querySelector('[data-cookie-settings]')) {
+    return;
+  }
+
+  const button = document.createElement('button');
+  button.className = 'footer-cookie-button';
+  button.type = 'button';
+  button.setAttribute('data-cookie-settings', '');
+  button.textContent = 'Cookie';
+  footerBottom.appendChild(button);
+}
+
 const navToggle = document.querySelector('[data-nav-toggle]');
 const nav = document.querySelector('[data-nav]');
 
@@ -66,6 +180,7 @@ document.addEventListener('keydown', (event) => {
 });
 
 const forms = document.querySelectorAll('[data-lead-form]');
+const mapLoaders = document.querySelectorAll('[data-load-map]');
 
 function setStatus(form, message, type) {
   const status = form.querySelector('[data-form-status]');
@@ -100,6 +215,8 @@ forms.forEach((form) => {
       payload.set('phone', String(data.get('phone') || ''));
       payload.set('message', String(data.get('message') || ''));
       payload.set('source', String(data.get('source') || window.location.pathname));
+      payload.set('personal_data_consent', String(data.get('personal_data_consent') || ''));
+      payload.set('consent_version', '2026-04-24');
 
       const response = await fetch('/send_post.php', {
         method: 'POST',
@@ -149,3 +266,48 @@ forms.forEach((form) => {
     }
   });
 });
+
+mapLoaders.forEach((button) => {
+  button.addEventListener('click', () => {
+    const mapCard = button.closest('[data-map-src]');
+
+    if (!mapCard) {
+      return;
+    }
+
+    const mapSrc = mapCard.getAttribute('data-map-src');
+
+    if (!mapSrc) {
+      return;
+    }
+
+    mapCard.classList.remove('map-card--placeholder');
+    mapCard.innerHTML = '';
+
+    const script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.charset = 'utf-8';
+    script.async = true;
+    script.src = mapSrc;
+
+    mapCard.appendChild(script);
+  });
+});
+
+document.addEventListener('click', (event) => {
+  if (!(event.target instanceof Element)) {
+    return;
+  }
+
+  const trigger = event.target.closest('[data-cookie-settings]');
+
+  if (!trigger) {
+    return;
+  }
+
+  event.preventDefault();
+  showCookieBanner(true);
+});
+
+initCookieSettings();
+showCookieBanner();

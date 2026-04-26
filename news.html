@@ -36,57 +36,13 @@
         "url": "https://genprofi.ru/news.html"
       }
     </script>
-
-    <script type="text/javascript">
-      (function (m, e, t, r, i, k, a) {
-        m[i] =
-          m[i] ||
-          function () {
-            (m[i].a = m[i].a || []).push(arguments);
-          };
-        m[i].l = 1 * new Date();
-        (k = e.createElement(t)),
-          (a = e.getElementsByTagName(t)[0]),
-          (k.async = 1),
-          (k.src = r),
-          a.parentNode.insertBefore(k, a);
-      })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js', 'ym');
-
-      ym(85038316, 'init', {
-        clickmap: true,
-        trackLinks: true,
-        accurateTrackBounce: true,
-      });
-    </script>
-    <noscript>
-      <div>
-        <img
-          src="https://mc.yandex.ru/watch/85038316"
-          style="position: absolute; left: -9999px"
-          alt=""
-        />
-      </div>
-    </noscript>
-
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-207694474-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag('js', new Date());
-      gtag('config', 'UA-207694474-1', {
-        anonymize_ip: true,
-        allow_google_signals: false,
-      });
-    </script>
   </head>
   <body>
     <div class="site-shell">
       <header class="site-header">
         <div class="container header-row">
           <a class="brand" href="index.html" aria-label="Генпрофи">
-            <img src="img/logo.svg" alt="Логотип Генпрофи" />
+            <img decoding="async" src="img/logo.svg" alt="Логотип Генпрофи" />
           </a>
           <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-label="Меню">
             <span></span>
@@ -124,7 +80,7 @@
               </p>
             </div>
             <div class="media-card">
-              <img src="img/blog/blog1.png" alt="Новости и статьи по упаковке" loading="eager" />
+              <img decoding="async" src="img/blog/blog1.png" alt="Новости и статьи по упаковке" loading="eager" fetchpriority="high" />
             </div>
           </div>
         </section>
@@ -132,7 +88,7 @@
         <section class="section">
           <div class="container news-grid">
             <article class="news-block">
-              <img src="img/home/subject-3.png" alt="Упаковка для маркетплейсов" loading="lazy" />
+              <img decoding="async" src="img/home/subject-3.png" alt="Упаковка для маркетплейсов" loading="lazy" />
               <div class="news-block__body">
                 <div class="tag-row">
                   <span class="tag">Маркетплейсы</span>
@@ -148,7 +104,7 @@
             </article>
 
             <article class="news-block">
-              <img src="img/home/subject-4.webp" alt="Пузырчатая пленка оптом" loading="lazy" />
+              <img decoding="async" src="img/home/subject-4.webp" alt="Пузырчатая пленка оптом" loading="lazy" />
               <div class="news-block__body">
                 <div class="tag-row">
                   <span class="tag">Пленка</span>
@@ -164,7 +120,7 @@
             </article>
 
             <article class="news-block">
-              <img src="img/home/subject-5.webp" alt="Как выбрать стретч пленку" loading="lazy" />
+              <img decoding="async" src="img/home/subject-5.webp" alt="Как выбрать стретч пленку" loading="lazy" />
               <div class="news-block__body">
                 <div class="tag-row">
                   <span class="tag">Стретч</span>
@@ -265,10 +221,11 @@
               <textarea id="news-message" name="message" placeholder="Какие материалы вас интересуют"></textarea>
             </div>
             <label class="checkbox">
-              <input type="checkbox" required />
+              <input type="checkbox" name="personal_data_consent" value="accepted" required />
               <span>
-                Я согласен на обработку данных для обратной связи и ознакомлен с
-                <a href="agreement.html">политикой обработки данных</a>.
+                Я даю согласие ООО «Генпрофи» на обработку имени, телефона и сообщения для ответа
+                на заявку и ознакомлен с
+                <a href="agreement.html">политикой обработки персональных данных</a>.
               </span>
             </label>
             <button class="button button--primary" type="submit">Отправить</button>

@@ -42,57 +42,13 @@
         }
       }
     </script>
-
-    <script type="text/javascript">
-      (function (m, e, t, r, i, k, a) {
-        m[i] =
-          m[i] ||
-          function () {
-            (m[i].a = m[i].a || []).push(arguments);
-          };
-        m[i].l = 1 * new Date();
-        (k = e.createElement(t)),
-          (a = e.getElementsByTagName(t)[0]),
-          (k.async = 1),
-          (k.src = r),
-          a.parentNode.insertBefore(k, a);
-      })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js', 'ym');
-
-      ym(85038316, 'init', {
-        clickmap: true,
-        trackLinks: true,
-        accurateTrackBounce: true,
-      });
-    </script>
-    <noscript>
-      <div>
-        <img
-          src="https://mc.yandex.ru/watch/85038316"
-          style="position: absolute; left: -9999px"
-          alt=""
-        />
-      </div>
-    </noscript>
-
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-207694474-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag('js', new Date());
-      gtag('config', 'UA-207694474-1', {
-        anonymize_ip: true,
-        allow_google_signals: false,
-      });
-    </script>
   </head>
   <body>
     <div class="site-shell">
       <header class="site-header">
         <div class="container header-row">
           <a class="brand" href="index.html" aria-label="Генпрофи">
-            <img src="img/logo.svg" alt="Логотип Генпрофи" />
+            <img decoding="async" src="img/logo.svg" alt="Логотип Генпрофи" />
           </a>
 
           <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-label="Меню">
@@ -126,9 +82,9 @@
                 <span>Контакты</span>
               </div>
               <span class="section-kicker">Связь с компанией</span>
-              <h1>Контакты, адреса и понятный способ быстро отправить запрос</h1>
+              <h1>Контакты, адреса и форма запроса</h1>
               <p class="lead">
-                На этой странице собраны реальные точки связи: офис в Москве, склад в Подольске,
+                На этой странице собраны основные контакты: офис в Москве, склад в Подольске,
                 телефон отдела продаж и быстрая форма для заявки по упаковочным материалам.
               </p>
               <div class="section-actions spacer-top">
@@ -137,7 +93,7 @@
               </div>
             </div>
             <div class="media-card">
-              <img src="img/company/company-logistics.webp" alt="Логистика и склад" loading="eager" />
+              <img decoding="async" src="img/company/company-logistics.webp" alt="Логистика и склад" loading="eager" fetchpriority="high" />
             </div>
           </div>
         </section>
@@ -225,21 +181,27 @@
               </p>
             </div>
             <div class="card-grid">
-              <article class="map-card">
-                <script
-                  type="text/javascript"
-                  charset="utf-8"
-                  async
-                  src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Aba56a719053caafe57ebebae30543bc1557b38f5adf958da74acad4b62eb47d5&amp;width=100%25&amp;height=425&amp;lang=ru_RU&amp;scroll=false"
-                ></script>
+              <article
+                class="map-card map-card--placeholder"
+                data-map-src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Aba56a719053caafe57ebebae30543bc1557b38f5adf958da74acad4b62eb47d5&amp;width=100%25&amp;height=425&amp;lang=ru_RU&amp;scroll=false"
+              >
+                <div class="map-card__content">
+                  <span class="section-kicker">Москва</span>
+                  <h3>Офис на карте</h3>
+                  <p class="muted">Карта загрузится после нажатия кнопки.</p>
+                  <button class="button button--secondary button--sm" type="button" data-load-map>Показать карту</button>
+                </div>
               </article>
-              <article class="map-card">
-                <script
-                  type="text/javascript"
-                  charset="utf-8"
-                  async
-                  src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ad1e318f0992050edfa1894b19dbe8b66b4fc076e3c1422f3439eb6bca7717d05&amp;width=100%25&amp;height=425&amp;lang=ru_RU&amp;scroll=false"
-                ></script>
+              <article
+                class="map-card map-card--placeholder"
+                data-map-src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ad1e318f0992050edfa1894b19dbe8b66b4fc076e3c1422f3439eb6bca7717d05&amp;width=100%25&amp;height=425&amp;lang=ru_RU&amp;scroll=false"
+              >
+                <div class="map-card__content">
+                  <span class="section-kicker">Подольск</span>
+                  <h3>Склад на карте</h3>
+                  <p class="muted">Карта загрузится после нажатия кнопки.</p>
+                  <button class="button button--secondary button--sm" type="button" data-load-map>Показать карту</button>
+                </div>
               </article>
             </div>
           </div>
@@ -298,10 +260,11 @@
                   ></textarea>
                 </div>
                 <label class="checkbox">
-                  <input type="checkbox" required />
+                  <input type="checkbox" name="personal_data_consent" value="accepted" required />
                   <span>
-                    Я согласен на обработку данных для обратной связи и ознакомлен с
-                    <a href="agreement.html">правовой информацией сайта</a>.
+                    Я даю согласие ООО «Генпрофи» на обработку имени, телефона и сообщения для ответа
+                    на заявку и ознакомлен с
+                    <a href="agreement.html">политикой обработки персональных данных</a>.
                   </span>
                 </label>
                 <button class="button button--secondary" type="submit">Отправить</button>
@@ -325,7 +288,7 @@
                 <a href="index.html">Главная</a>
                 <a href="company.html">О компании</a>
                 <a href="news.html">Новости</a>
-                <a href="agreement.html">Политика обработки данных</a>
+                <a href="agreement.html">Политика персональных данных</a>
               </div>
             </section>
             <section class="footer-card">
@@ -374,10 +337,11 @@
               <textarea id="modal-contact-message" name="message" placeholder="Опишите запрос"></textarea>
             </div>
             <label class="checkbox">
-              <input type="checkbox" required />
+              <input type="checkbox" name="personal_data_consent" value="accepted" required />
               <span>
-                Я согласен на обработку данных для обратной связи и принимаю условия
-                <a href="agreement.html">политики обработки данных</a>.
+                Я даю согласие ООО «Генпрофи» на обработку имени, телефона и сообщения для ответа
+                на заявку и ознакомлен с
+                <a href="agreement.html">политикой обработки персональных данных</a>.
               </span>
             </label>
             <button class="button button--primary" type="submit">Отправить заявку</button>
