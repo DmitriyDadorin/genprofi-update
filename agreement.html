@@ -61,7 +61,7 @@
               <a href="tel:+74951089993">+7 (495) 108-99-93</a>
               <a href="mailto:info@genprofi.ru">info@genprofi.ru</a>
             </div>
-            <a class="button button--primary button--sm" href="#lead-modal" data-open-modal>Заявка</a>
+            <a class="button button--primary button--sm" href="contact.html">Контакты</a>
           </div>
         </div>
       </header>
@@ -196,7 +196,7 @@
                   указанные на странице контактов.
                 </p>
                 <p>
-                  Информацию о cookie можно снова открыть через ссылку «Cookie» в нижней части сайта.
+                  Если пользователь запретит cookie в настройках браузера, сайт останется доступным.
                 </p>
               </div>
             </article>
@@ -294,6 +294,10 @@
           <span class="section-kicker">Обратная связь</span>
           <h2 id="lead-modal-title">Связаться с компанией</h2>
           <p class="lead">Форма используется только для ответа на запрос и не сохраняется в базе сайта.</p>
+          <!-- TEMP: форма обратной связи временно отключена. Чтобы восстановить, уберите template и верните кнопки с data-open-modal. -->
+
+          <template data-disabled-feedback-form>
+
           <form class="form-panel" data-lead-form>
             <input type="hidden" name="source" value="Правовая страница" />
             <div class="form-grid">
@@ -321,6 +325,8 @@
             <button class="button button--primary" type="submit">Отправить</button>
             <div class="form-status" data-form-status></div>
           </form>
+
+          </template>
         </div>
       </div>
     </div>

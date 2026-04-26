@@ -795,6 +795,102 @@ p {
   color: var(--muted);
 }
 
+.call-card {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 18px;
+  align-items: center;
+  padding: 22px;
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(21, 25, 28, 0.1);
+}
+
+.call-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ef8b2d, #c95c08);
+  color: #fff;
+  box-shadow: 0 16px 34px rgba(201, 92, 8, 0.28);
+  animation: call-pulse 1.8s ease-in-out infinite;
+}
+
+.call-card__icon::before {
+  content: "\260E";
+  font-size: 1.75rem;
+  line-height: 1;
+  animation: call-ring 1.2s ease-in-out infinite;
+  transform-origin: 50% 55%;
+}
+
+.call-card__body {
+  display: grid;
+  gap: 8px;
+}
+
+.call-card__title {
+  display: block;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.call-card__phone {
+  display: inline-flex;
+  width: fit-content;
+  color: var(--accent-strong);
+  font-size: 1.18rem;
+  font-weight: 800;
+}
+
+.call-card__text {
+  color: var(--muted);
+}
+
+.panel--accent .call-card {
+  background: rgba(255, 255, 255, 0.94);
+  color: var(--text);
+}
+
+@keyframes call-ring {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+
+  15% {
+    transform: rotate(-15deg);
+  }
+
+  30% {
+    transform: rotate(12deg);
+  }
+
+  45% {
+    transform: rotate(-9deg);
+  }
+
+  60% {
+    transform: rotate(6deg);
+  }
+}
+
+@keyframes call-pulse {
+  0%,
+  100% {
+    box-shadow: 0 16px 34px rgba(201, 92, 8, 0.28), 0 0 0 0 rgba(217, 111, 24, 0.22);
+  }
+
+  50% {
+    box-shadow: 0 16px 34px rgba(201, 92, 8, 0.28), 0 0 0 12px rgba(217, 111, 24, 0);
+  }
+}
+
 .form-panel {
   display: grid;
   gap: 16px;
@@ -942,16 +1038,6 @@ p {
   border-top: 1px solid rgba(21, 25, 28, 0.08);
   color: var(--muted);
   font-size: 0.94rem;
-}
-
-.footer-cookie-button {
-  padding: 0;
-  color: var(--accent-strong);
-  font-weight: 700;
-}
-
-.footer-cookie-button:hover {
-  text-decoration: underline;
 }
 
 .modal {
@@ -1198,6 +1284,11 @@ p {
   .hero-actions,
   .section-actions {
     flex-direction: column;
+  }
+
+  .call-card {
+    grid-template-columns: 1fr;
+    justify-items: start;
   }
 
   .cookie-consent {

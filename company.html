@@ -63,7 +63,7 @@
               <a href="tel:+74951089993">+7 (495) 108-99-93</a>
               <a href="mailto:info@genprofi.ru">info@genprofi.ru</a>
             </div>
-            <a class="button button--primary button--sm" href="#lead-modal" data-open-modal>Заявка</a>
+            <a class="button button--primary button--sm" href="contact.html">Контакты</a>
           </div>
         </div>
       </header>
@@ -104,8 +104,8 @@
               <span>офис в Москве и склад в Подольске</span>
             </article>
             <article class="stat-card">
-              <strong>Прямо</strong>
-              <span>быстрый контакт с менеджером по телефону или через форму</span>
+              <strong>Связь</strong>
+              <span>быстрый контакт с менеджером по телефону или через страницу контактов</span>
             </article>
           </div>
         </section>
@@ -229,6 +229,10 @@
           <span class="section-kicker">Запрос</span>
           <h2 id="lead-modal-title">Обсудить поставку</h2>
           <p class="lead">Оставьте контакты, и менеджер свяжется с вами по упаковочным материалам.</p>
+          <!-- TEMP: форма обратной связи временно отключена. Чтобы восстановить, уберите template и верните кнопки с data-open-modal. -->
+
+          <template data-disabled-feedback-form>
+
           <form class="form-panel" data-lead-form>
             <input type="hidden" name="source" value="Страница о компании" />
             <div class="form-grid">
@@ -256,6 +260,8 @@
             <button class="button button--primary" type="submit">Отправить</button>
             <div class="form-status" data-form-status></div>
           </form>
+
+          </template>
         </div>
       </div>
     </div>

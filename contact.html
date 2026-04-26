@@ -13,7 +13,7 @@
     <meta property="og:title" content="Контакты Генпрофи" />
     <meta
       property="og:description"
-      content="Свяжитесь с Генпрофи по поставкам упаковочных материалов: офис в Москве, склад в Подольске, форма запроса и карта проезда."
+      content="Свяжитесь с Генпрофи по поставкам упаковочных материалов: офис в Москве, склад в Подольске, телефон и карта проезда."
     />
     <meta property="og:url" content="https://genprofi.ru/contact.html" />
     <meta property="og:image" content="https://genprofi.ru/img/company/company-logistics.webp" />
@@ -68,7 +68,7 @@
               <a href="tel:+74951089993">+7 (495) 108-99-93</a>
               <a href="mailto:info@genprofi.ru">info@genprofi.ru</a>
             </div>
-            <a class="button button--primary button--sm" href="#lead-modal" data-open-modal>Заявка</a>
+            <a class="button button--primary button--sm" href="contact.html">Контакты</a>
           </div>
         </div>
       </header>
@@ -82,14 +82,14 @@
                 <span>Контакты</span>
               </div>
               <span class="section-kicker">Связь с компанией</span>
-              <h1>Контакты, адреса и форма запроса</h1>
+              <h1>Контакты, адреса и быстрый звонок менеджеру</h1>
               <p class="lead">
                 На этой странице собраны основные контакты: офис в Москве, склад в Подольске,
-                телефон отдела продаж и быстрая форма для заявки по упаковочным материалам.
+                телефон отдела продаж и данные для связи по упаковочным материалам.
               </p>
               <div class="section-actions spacer-top">
                 <a class="button button--primary" href="tel:+74951089993">Позвонить сейчас</a>
-                <a class="button button--secondary" href="#lead-modal" data-open-modal>Открыть форму</a>
+                <a class="button button--secondary" href="contact.html">Контакты</a>
               </div>
             </div>
             <div class="media-card">
@@ -149,7 +149,7 @@
           <div class="container split-grid">
             <article class="panel panel--dark">
               <span class="section-kicker">Как обратиться</span>
-              <h2>Что лучше сообщить в заявке, чтобы быстрее получить точный ответ</h2>
+              <h2>Что лучше сообщить менеджеру, чтобы быстрее получить точный ответ</h2>
               <ul class="timeline">
                 <li>Какой товар или груз нужно упаковать.</li>
                 <li>Какая продукция интересует: пленка, скотч, короба, пакеты, расходники.</li>
@@ -211,7 +211,7 @@
           <div class="container split-grid">
             <article class="panel">
               <span class="section-kicker">Остались вопросы</span>
-              <h2>Частые вопросы перед первой заявкой</h2>
+              <h2>Частые вопросы перед первым звонком</h2>
               <div class="faq">
                 <details>
                   <summary>Можно ли оставить только телефон без подробного ТЗ?</summary>
@@ -219,7 +219,7 @@
                 </details>
                 <details>
                   <summary>Можно ли обратиться по нескольким позициям сразу?</summary>
-                  <p>Да. В форме лучше перечислить интересующие материалы, чтобы ускорить обработку заявки.</p>
+                  <p>Да. По телефону лучше сразу назвать интересующие материалы, чтобы менеджер быстрее сориентировал по поставке.</p>
                 </details>
                 <details>
                   <summary>Где посмотреть подробности по обработке данных?</summary>
@@ -232,8 +232,23 @@
             </article>
 
             <article class="panel panel--accent">
-              <span class="section-kicker">Быстрый запрос</span>
-              <h3>Напишите, что нужно, и мы вернемся с ответом</h3>
+              <span class="section-kicker">Быстрый контакт</span>
+              <h3>Позвоните менеджеру напрямую</h3>
+              <div class="call-card">
+                <a class="call-card__icon" href="tel:+74951089993" aria-label="Позвонить в Генпрофи"></a>
+                <div class="call-card__body">
+                  <span class="call-card__title">Мы ждем от вас звонка</span>
+                  <a class="call-card__phone" href="tel:+74951089993">+7 (495) 108-99-93</a>
+                  <p class="call-card__text">
+                    Позвоните менеджеру, расскажите о задаче и получите быстрый ответ по ассортименту,
+                    наличию и удобному варианту поставки.
+                  </p>
+                </div>
+              </div>
+              <!-- TEMP: форма обратной связи временно отключена. Чтобы восстановить, уберите template и верните кнопки с data-open-modal. -->
+
+              <template data-disabled-feedback-form>
+
               <form class="form-panel" data-lead-form>
                 <input type="hidden" name="source" value="Страница контактов" />
                 <div class="field">
@@ -270,6 +285,8 @@
                 <button class="button button--secondary" type="submit">Отправить</button>
                 <div class="form-status" data-form-status></div>
               </form>
+
+              </template>
             </article>
           </div>
         </section>
@@ -307,7 +324,7 @@
 
           <div class="footer-bottom">
             <span>© 2026 Генпрофи.</span>
-            <span>Контакты, адреса и форма для быстрого запроса.</span>
+            <span>Контакты, адреса и телефон для быстрого запроса.</span>
           </div>
         </div>
       </footer>
@@ -320,6 +337,10 @@
           <span class="section-kicker">Запрос</span>
           <h2 id="lead-modal-title">Расскажите, какая упаковка вам нужна</h2>
           <p class="lead">Достаточно телефона и короткого описания задачи. Остальное уточним в разговоре.</p>
+          <!-- TEMP: форма обратной связи временно отключена. Чтобы восстановить, уберите template и верните кнопки с data-open-modal. -->
+
+          <template data-disabled-feedback-form>
+
           <form class="form-panel" data-lead-form>
             <input type="hidden" name="source" value="Модальная форма со страницы контактов" />
             <div class="form-grid">
@@ -347,6 +368,8 @@
             <button class="button button--primary" type="submit">Отправить заявку</button>
             <div class="form-status" data-form-status></div>
           </form>
+
+          </template>
         </div>
       </div>
     </div>

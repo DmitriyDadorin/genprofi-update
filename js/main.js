@@ -97,21 +97,6 @@ function showCookieBanner(force = false) {
   });
 }
 
-function initCookieSettings() {
-  const footerBottom = document.querySelector('.footer-bottom');
-
-  if (!footerBottom || footerBottom.querySelector('[data-cookie-settings]')) {
-    return;
-  }
-
-  const button = document.createElement('button');
-  button.className = 'footer-cookie-button';
-  button.type = 'button';
-  button.setAttribute('data-cookie-settings', '');
-  button.textContent = 'Cookie';
-  footerBottom.appendChild(button);
-}
-
 const navToggle = document.querySelector('[data-nav-toggle]');
 const nav = document.querySelector('[data-nav]');
 
@@ -294,20 +279,4 @@ mapLoaders.forEach((button) => {
   });
 });
 
-document.addEventListener('click', (event) => {
-  if (!(event.target instanceof Element)) {
-    return;
-  }
-
-  const trigger = event.target.closest('[data-cookie-settings]');
-
-  if (!trigger) {
-    return;
-  }
-
-  event.preventDefault();
-  showCookieBanner(true);
-});
-
-initCookieSettings();
 showCookieBanner();
